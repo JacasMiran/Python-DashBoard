@@ -24,7 +24,7 @@ import os
 
 ### 
 
-#df_states = pd.read_csv("df_states.csv")
+df_states = pd.read_csv("df_states.csv")
 df_brasil = pd.read_csv("df_brasil.csv")
 
 df_states_ = df_states[df_states["data"]=="2020-05-13"]
@@ -33,7 +33,7 @@ brazil_states =json.load(open("geojson/brazil_geo.json", "r"))
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])
 
-fig = px.choropleth_mapbox(df_states,locations="estado",
+fig = px.choropleth_mapbox(df_states_,locations="estado",
                             center={"lat":16.95, "lon":-47.78},
                             color="casosNovos",
                             geojson=brazil_states,
